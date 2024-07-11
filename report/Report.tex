@@ -1,0 +1,87 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{algorithm}  
+\usepackage{algpseudocode}  
+\usepackage{amsmath}  
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm  
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\parindent=22pt
+\parskip=3pt
+\oddsidemargin 18pt \evensidemargin 0pt
+\leftmargin 1.5in
+\marginparwidth 1in \marginparsep 0pt \headsep 0pt \topskip 20pt
+\textheight 225mm \textwidth 148mm
+\renewcommand{\baselinestretch}{1.15}
+\begin{document}
+\title{{\bf Final Course Report}}
+\author{3190102721 Xu Shengze}
+\date{}
+\maketitle
+
+\section{Review}
+
+\qquad First of all, I would like to review the main contents of what we have learned in the thirty-two lessons this semester. I have already studied quantum information and quantum computing taught by Professor Wu in the last semester. Compared with the course of the previous semester, the course of this semester has a faster pace and has more explanations on quantum algorithms. Last year's course mainly revolved around classical computing, and made specific elaborations on Turing machine, $NP$ problem, $BPP$ problem, computational complexity, etc. The introduction to quantum computing only stops at the more basic parts of Chapters 6 and 7.
+
+I have gained a better understanding of many parts of quantum algorithms through the course of this semester. What impressed me was that the exercises on quantum circuits in a certain homework combined the ideas of classical algorithms and quantum algorithms, which helped us better understand the course content.
+
+
+\section{Some Topics}
+\qquad In last semester's report, I did a superficial exploration of quantum computers and quantum machine learning. Through this semester's study of this course and another course on statistical learning, I want to continue to explore quantum machine learning further in this report.
+
+\subsection{Quantum Machine Learning}
+\qquad Machine learning is one of the very hot topics in recent years. Professor Wu talked in class about the machine learning algorithms that have also been implemented by quantum computing at present, and I was very surprised to hear that at that time, I did not expect that it has been developed to such an advanced stage at present.
+
+For an N-dimensional vector, compared to the classical theory where $N$ bits can be represented, only $\log(N)$ are needed by virtue of the quantum bit theory. Since a quantum bit can be in a superposition of $|0\rangle$ and $|1\rangle$ states and have coherence with each other, multiple quantum bits can be entangled together to represent more complex states. Therefore, quantum algorithms can be used and improved for machine learning and even various other classical problems.
+
+Quantum machine learning is built on two concepts, quantum data and hybrid quantum-classical models.
+
+Quantum data is any source of data that occurs in natural or artificial quantum systems that can exhibit superposition and entanglement states. Heuristic machine learning techniques can create models that maximize the extraction of useful classical information from noisy entangled data, and can unravel and generalize correlations in quantum data, creating opportunities for improving existing quantum algorithms or discovering new ones.
+
+Quantum models can represent and generalize data containing quantum mechanical origins. Since near-term quantum processors are still small and noisy, quantum models cannot generalize quantum data using quantum processors alone. NISQ processors must work in conjunction with traditional coprocessors to be effective.
+
+\subsection{Some Algorithms in Machine Learning}
+\qquad This semester I took another course on some common methods of machine learning, such as support vector machines, clustering, neural networks, etc. Out of curiosity, I looked up the progress in related fields in quantum machine learning.
+
+Taking SVM as an example, SVM utilizes a small number of support vectors and divides the data into two classes through a classification hyperplane to maximize the interval between the two classes. SVM still traverses all samples and all features in calculation, and the time complexity is the polynomial level of the number of features $N$ and the number of samples $M$, so when the number of samples is large, the amount of calculation is quite large.
+
+Compared with the classical support vector machine (SVM), the aforementioned quantum support vector machine has an exponential speed-up effect. Quantum support vector machine QSVM is based on quantum change circuit, which requires two sets of classification algorithms, one set is used for training and computing hyperplanes like ordinary SVM, and the other set is used for new known data to correct labels. It has obvious advantages in accuracy and speed for processing big data.
+
+I studied a paper that talks about QSVM, the paper solves the computational complexity of the two parameters involved in SVM through two quantum methods.
+
+The original SVM algorithm is a constrained optimization problem. When solving the original SVM algorithm, the solution of the aforementioned parameters $\omega$ and b in the original problem will be converted to the Lagrangian multiplier $\alpha$ through Lagrangian duality and KKT conditions The solution of , and finally get the solution $\omega$ and b of the original problem by bringing in $\omega$.
+
+LSSVM converts the inequality constraints of the original SVM into equality constraints $y_j^2=1$ by introducing the slack variable $e_j$, which greatly facilitates the solution of the Lagrangian parameter $\alpha$, and converts the original QP (quadratic programming) problem is transformed into a problem of solving a system of linear equations. Quantum algorithms can achieve exponential speedup in solving linear equations, so they can be used to solve LSSVM.
+
+The QSVM training process is described in the paper, the most important part of which is the matrix simulation, which is mainly divided into three steps, simulating $e^{i\hat{F}\Delta t}$, $\hat{k} =\frac{k}{trk}$, $e^{i\hat{K}\Delta t}$. The training process is very similar to the HHL algorithm. This is an algorithm that uses a quantum computer to solve the optimal solution of the linear problem $Ax=b$, so I won’t expand it here.
+
+Besides, there are many common models that have certain applications in the field of quantum algorithms. The quantum nearest mean model, whose principle is similar to that of classical algorithms, converts data points into quantum objects, calculates distances and classifies them , decode the result to get the classification of the original data point.
+
+In addition, there are comparisons between various classical algorithms such as decision trees and quantum algorithms. Although quantum machine learning can also do regression, clustering, feature extraction, etc., most of them are classification.
+
+\subsection{The Future of QML}
+\qquad With the advent of the big data era, electronic data is exploding, limited by the size of the chip classical computer computing speed is very little room for improvement, machine learning and other big data analysis tasks in the future may face huge challenges, and the significance of quantum technology at this time is self-evident.
+
+The development of QML also faces a lot of challenges. On the input and output side we need to think about how to map classical data back and forth, and on the costing side the algorithm needs the number of gates. Most importantly, whether the performance of a quantum algorithm is indeed superior. Most of these topics and the problems they pose are in the fetal stage, and the process of exploration is very exciting and certainly very difficult.
+
+\section{Outlook}
+\subsection{Comparison}
+\qquad Combinatorial optimization is another course I took last semester, and the knowledge taught by Professor Tan in it overlaps with Professor Wu's class last semester, including topics such as NP problems and computational complexity. In this semester's quantum algorithm course, Professor Maksim also gave a more detailed description of this part, and then gave a more detailed introduction to the learning content in the quantum field, and explained various important concepts and classic questions in simple language.
+
+The structure of this course is quite different from most of the previous courses. Compared with the traditional courses that focus on formulas and theorem calculus derivation, this course pays more attention to thinking and the ability of students to accept new knowledge. And there is a greater degree of correlation between each chapter.
+\subsection{Suggestion}
+\qquad First of all, I think teachers can appropriately increase the amount of homework in the course, and the form of homework does not need to be limited to after-class exercises. It can take the form of listening to a lecture and studying a certain paper to enhance students' understanding of the concepts in the course. Secondly, I hope that teachers can increase interaction in the course and mobilize the enthusiasm of the students to listen to the class. Finally, because the knowledge system of the course is relatively new and covers a very wide range, it is advisable to adopt some open teaching methods, such as letting students report in the form of groups. learn from each other.
+
+Finally, I am very grateful to the teachers and teaching assistants for their hard work over the past semester!
+
+\section{References}
+
+\noindent[1] Quantum Machine Learning for Data Classification, 2021 American Physical Society, 2021, Physics 14,79
+
+\noindent[2] Quantum machine learning concepts, https://tensorflow.google.cn/quantum/concepts
+
+\noindent[3] Quantum Support Vector Machine(QSVM), https://www.qtumist.com/post/6653
+
+\noindent[4] Quantum convolutional neural networks, Iris Cong, Soonwon Choi and Mikhail D. Lukin, nature physics
+
+\noindent[5] Quantum Algorithm for Data Fitting, Nathan Wiebe, Daniel Braun and Seth Lloyd, PHYSICAL REVIEW LETTERS, 3 AUGUST 2012, PRL 109, 050505
+\end{document}
